@@ -20,6 +20,7 @@ export default function Projects() {
         {/* Header */}
         <div className="text-center space-y-4">
           <h1 className="text-5xl font-bold text-gray-900">Projects & Experience</h1>
+          <p className="text-xl text-gray-600">My Computer Science Journey</p>
         </div>
 
         {/* Education Section */}
@@ -365,32 +366,35 @@ export default function Projects() {
 
         {/* Links Section */}
         <section className="space-y-6 flex flex-col items-center">
-          <h2 className="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 w-full text-center">Connect With Me</h2>
-          
+          <h2 className="text-3xl font-bold text-gray-900 border-b-2 border-blue-500 pb-2 w-full text-center">
+            Connect With Me
+          </h2>
+
           <div className="flex gap-6 flex-wrap justify-center">
-            <a 
-              href="https://www.linkedin.com/in/haleybae" 
-              target="_blank" 
+            <a
+              href="https://www.linkedin.com/in/haleybae"
+              target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="flex items-center justify-center gap-3 px-8 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors w-56 text-center"
             >
-              <Linkedin className="w-5 h-5" />
-              <span className="font-medium">LinkedIn</span>
-              <ExternalLink className="w-4 h-4" />
+              <Linkedin className="w-5 h-5 text-white" />
+              <span className="font-medium text-white">LinkedIn</span>
+              <ExternalLink className="w-4 h-4 text-white" />
             </a>
-            
-            <a 
-              href="https://github.com/haleyabae22" 
-              target="_blank" 
+
+            <a
+              href="https://github.com/haleyabae22"
+              target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+              className="flex items-center justify-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors w-56 text-center"
             >
-              <Github className="w-5 h-5" />
-              <span className="font-medium">GitHub</span>
-              <ExternalLink className="w-4 h-4" />
+              <Github className="w-5 h-5 text-white" />
+              <span className="font-medium text-white">GitHub</span>
+              <ExternalLink className="w-4 h-4 text-white" />
             </a>
           </div>
         </section>
+
 
       </div>
     </div>
