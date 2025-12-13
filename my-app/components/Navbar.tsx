@@ -16,45 +16,60 @@ export default function Navbar() {
         <div className="flex justify-center items-center h-24">
           <NavigationMenu>
             <NavigationMenuList className="flex-wrap justify-center gap-6 md:gap-12">
-              
+
               <NavigationMenuItem>
-                <Link href="/" legacyBehavior passHref>
-                  <NavigationMenuLink className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors">
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/"
+                    className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors"
+                  >
                     Home
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/projects" legacyBehavior passHref>
-                  <NavigationMenuLink className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors">
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/projects"
+                    className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors"
+                  >
                     Projects & Experiences
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/hobbies" legacyBehavior passHref>
-                  <NavigationMenuLink className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors">
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/hobbies"
+                    className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors"
+                  >
                     Extracurriculars
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/game" legacyBehavior passHref>
-                  <NavigationMenuLink className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors">
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/game"
+                    className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors"
+                  >
                     Mini Basketball
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
               <NavigationMenuItem>
-                <Link href="/leaderboard" legacyBehavior passHref>
-                  <NavigationMenuLink className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors">
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/leaderboard"
+                    className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors"
+                  >
                     Leaderboard
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
 
             </NavigationMenuList>
