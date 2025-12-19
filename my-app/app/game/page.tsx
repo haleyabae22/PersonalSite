@@ -1,8 +1,13 @@
-export default function Game() {
+// Mini Ball Game Page
+
+// Import the BasketballGame component from the components directory
+import BasketballGame from "@/components/BasketballGame";
+
+// Call the BasketballGame component to display the game
+export default function GamePage() {
   return (
-    <div className="max-w-4xl mx-auto p-8">
-      <h1 className="text-3xl font-bold mb-4">Mini Ball</h1>
-      <p>Basketball game coming soon</p>
+    <div className="min-h-screen">
+      <BasketballGame />
     </div>
   );
 }

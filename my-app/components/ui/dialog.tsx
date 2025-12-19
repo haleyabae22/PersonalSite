@@ -1,3 +1,4 @@
+// Dialog component using Radix UI Dialog primitives
 "use client"
 
 import * as React from "react"

@@ -1,3 +1,6 @@
+// Extracurriculars and Hobbies page
+
+// For hobby cards and links to videos
 import { Card } from "@/components/ui/card";
 import { ExternalLink } from "lucide-react";
 
@@ -6,11 +9,78 @@ export default function Hobbies() {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-12 px-4 flex flex-col items-center">
       <div className="max-w-5xl mx-auto space-y-16">
         
-        {/* Header */}
+        {/* Headers */}
         <div className="text-center space-y-4">
-          <h1 className="text-5xl font-bold text-gray-900">Hobbies & Extracurriculars</h1>
+          <h1 className="text-5xl font-bold text-gray-900">Extracurriculars & Hobbies</h1>
           <p className="text-xl text-gray-600">Beyond code and coursework</p>
         </div>
+
+        {/* Extracurricular Involvement Section */}
+        <section className="space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-4xl font-bold text-gray-900 border-b-2 border-green-500 pb-2">
+              Extracurricular Involvement
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Outside the classroom, I enjoy giving back to the tech community through mentorship
+              and outreach
+            </p>
+          </div>
+
+          <div className="grid gap-6">
+            {/* Kickstart Mentor Card */}
+            <Card className="p-8 bg-gradient-to-br from-green-50 to-white border-2 border-green-200">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Kickstart Mentor — Knight Hacks
+                  </h3>
+                  <span className="text-sm text-gray-500 italic">
+                    Aug 2025 – Dec 2025
+                  </span>
+                </div>
+
+                <ul className="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+                  <li>
+                    Mentored 3 students of varying experience levels in technical, academic, and professional development.
+                  </li>
+                  <li>
+                    Conducted biweekly mentorship meetings and 1:1 sessions for guidance, feedback, and goal tracking.
+                  </li>
+                  <li>
+                    Supported mentees in strengthening core software engineering skills and gaining exposure to cloud technologies.
+                  </li>
+                </ul>
+              </div>
+            </Card>
+
+            {/* Outreach Team Member Card */}
+            <Card className="p-8 bg-gradient-to-br from-green-50 to-white border-2 border-green-200">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    Outreach Team Member — Knight Hacks
+                  </h3>
+                  <span className="text-sm text-gray-500 italic">
+                    Oct 2024 – May 2025
+                  </span>
+                </div>
+
+                <ul className="list-disc list-inside space-y-2 text-gray-700 leading-relaxed">
+                  <li>
+                    Engaged with students at tabling events to promote the organization and recruit new members.
+                  </li>
+                  <li>
+                    Advertised Knight Hacks programs and initiatives to increase student involvement.
+                  </li>
+                  <li>
+                    Documented club activities and events for internal and promotional use.
+                  </li>
+                </ul>
+              </div>
+            </Card>
+          </div>
+        </section>
 
         {/* Sports Section */}
         <section className="space-y-8">
@@ -35,7 +105,7 @@ export default function Hobbies() {
               <div className="space-y-4 text-gray-700 leading-relaxed">
                 <p className="text-lg">
                   I have been playing basketball for over 11 years. I played varsity in high school, 
-                  serving as team captain, and grey-shirted at Orange Coast College. Today, I stay connected 
+                  serving as team captain, and grey-shirted at a junior college. Today, I stay connected 
                   to the game through intramural leagues and friendly matches.
                 </p>
 
@@ -82,21 +152,6 @@ export default function Hobbies() {
           <h2 className="text-4xl font-bold text-gray-900 border-b-2 border-purple-500 pb-2">Other Hobbies</h2>
           
           <div className="grid gap-6 md:grid-cols-2">
-            {/* Singing Card */}
-            <Card className="p-8 bg-gradient-to-br from-pink-50 to-white border-2 border-pink-200 hover:shadow-lg transition-shadow">
-              <div className="space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="text-5xl">🎤</div>
-                  <h3 className="text-3xl font-bold text-gray-900">Singing</h3>
-                </div>
-                
-                <p className="text-gray-700 leading-relaxed">
-                  I took professional singing lessons as a child, and while I mostly enjoy karaoke for fun now, 
-                  music continues to be a creative outlet for me.
-                </p>
-              </div>
-            </Card>
-
             {/* Dancing Card */}
             <Card className="p-8 bg-gradient-to-br from-purple-50 to-white border-2 border-purple-200 hover:shadow-lg transition-shadow">
               <div className="space-y-4">
@@ -117,10 +172,9 @@ export default function Hobbies() {
         {/* Fun Footer */}
         <div className="text-center pt-8 pb-4">
           <p className="text-gray-500 italic">
-            Want to challenge me to a game? Check out <a href="/game" className="text-blue-600 hover:underline font-medium">Mini Basketball</a>!
+            Want to challenge me to a game? Check out <a href="/game" className="text-blue-600 hover:underline font-medium">Mini Ball</a>!
           </p>
         </div>
-
       </div>
     </div>
   );

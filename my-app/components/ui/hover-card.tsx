@@ -1,3 +1,5 @@
+// HoverCard component using Radix UI HoverCard primitives
+// Used for displaying additional information on hover
 "use client"
 
 import * as React from "react"

@@ -1,3 +1,4 @@
+// Navigation bar component using Next.js and Tailwind CSS
 "use client"
 
 import * as React from "react"
@@ -45,7 +46,7 @@ export default function Navbar() {
                     href="/hobbies"
                     className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors"
                   >
-                    Extracurriculars
+                    Extracurriculars & Hobbies
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -56,7 +57,7 @@ export default function Navbar() {
                     href="/game"
                     className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors"
                   >
-                    Mini Basketball
+                    Mini Ball
                   </Link>
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -72,6 +73,16 @@ export default function Navbar() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
 
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/contacts"
+                    className="text-lg md:text-xl font-semibold px-4 py-2 hover:text-blue-600 transition-colors"
+                  >
+                    Contacts
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>

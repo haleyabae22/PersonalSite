@@ -1,3 +1,5 @@
+// NavigationMenu component using Radix UI NavigationMenu primitives
+// Used to create a responsive navigation menu with dropdowns
 import * as React from "react"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"

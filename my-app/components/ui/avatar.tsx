@@ -1,3 +1,4 @@
+// Avatar component using Radix UI Avatar primitives
 "use client"
 
 import * as React from "react"

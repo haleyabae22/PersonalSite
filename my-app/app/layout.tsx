@@ -1,3 +1,4 @@
+// Layout file for the entire application
 import type { Metadata } from 'next';
 import './globals.css';
 import Navbar from '@/components/Navbar';
