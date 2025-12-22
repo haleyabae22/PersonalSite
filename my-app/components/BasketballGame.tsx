@@ -7,6 +7,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card } from "@/components/ui/card";
+import Link from "next/link";
 
 // Set up types and constants
 type GameState = "start" | "countdown" | "playing" | "ended";
@@ -29,6 +30,8 @@ const BACKBOARD_DAMPING = 0.15;
 const FRICTION = 0.98;
 const ROLLING_SPEED = 3.5;
 
+const API_URL = 'https:/2sw64lg7z2.execute-api.us-east-1.amazonaws.com/prod/leaderboard';
+
 export default function BasketballGame() {
   // Animation and game state refs
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -47,6 +50,8 @@ export default function BasketballGame() {
   const [meterValue, setMeterValue] = useState(50); // 0-100, 50 is perfect
   const [meterDirection, setMeterDirection] = useState(1); // 1 or -1
   const [shotResult, setShotResult] = useState<"good" | "miss" | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   // Ball state
   const [ball, setBall] = useState<Ball>({
@@ -63,6 +68,41 @@ export default function BasketballGame() {
   const backboard = { x: 630, y: 130, width: 90, height: 120 };
   const rim = { x: 550, y: 200, width: 100, height: 10 };
   const hoop = { x: 560, y: 210, width: 80, height: 20 };
+
+  // Submit score to AWS
+  const submitScore = async () => {
+    if (!playerName.trim()) {
+      setSubmitMessage("Please enter your name to save your score!");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitMessage("");
+
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          playerName: playerName.trim(), 
+          score 
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit score');
+      }
+      
+      const data = await response.json();
+      setSubmitMessage(`Score submitted successfully! 🎉 View the leaderboard to see your rank.`);
+      
+    } catch (error) {
+      console.error('Error submitting score:', error);
+      setSubmitMessage('Error submitting score. Please try again or check your connection.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   // Canvas resize handler
   useEffect(() => {
@@ -735,7 +775,7 @@ export default function BasketballGame() {
 
             <div className="bg-white rounded-lg p-8 shadow-inner">
               <p className="text-2xl text-gray-700 mb-2">
-                {playerName || "Guest Player"}
+                {playerName}
               </p>
               <div className="text-6xl font-bold text-orange-600 mb-2">
                 {score}
@@ -743,45 +783,38 @@ export default function BasketballGame() {
               <p className="text-xl text-gray-600">Points</p>
             </div>
 
-            <div className="space-y-4 pt-4">
-              {playerName ? (
-                <Button
-                  onClick={saveScore}
-                  size="lg"
-                  className="bg-green-500 hover:bg-green-600 text-white text-lg px-8"
-                >
-                  Save Score to Leaderboard
-                </Button>
-              ) : (
-                <div className="space-y-3">
-                  <p className="text-gray-600">Want to save your score?</p>
-                  <Input
-                    type="text"
-                    placeholder="Enter your name"
-                    value={playerName}
-                    onChange={(e) => setPlayerName(e.target.value)}
-                    className="max-w-xs mx-auto text-center"
-                  />
-                  <Button
-                    onClick={saveScore}
-                    size="lg"
-                    variant="outline"
-                    className="text-lg px-8"
-                  >
-                    Save Score
-                  </Button>
-                </div>
-              )}
-
-              <div className="pt-4">
-                <Button
-                  onClick={playAgain}
-                  size="lg"
-                  className="bg-blue-500 hover:bg-blue-600 text-white text-lg px-8"
-                >
-                  Play Again
-                </Button>
+            {submitMessage ? (
+              <div className={`p-4 rounded-lg ${submitMessage.includes('Error') ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+                <p className="font-semibold">{submitMessage}</p>
               </div>
+            ) : (
+              <Button
+                onClick={submitScore}
+                disabled={isSubmitting}
+                size="lg"
+                className="bg-green-500 hover:bg-green-600 text-white text-lg px-8 disabled:opacity-50"
+              >
+                {isSubmitting ? 'Submitting...' : 'Save Score to Leaderboard'}
+              </Button>
+            )}
+
+            <div className="flex gap-4 justify-center pt-4">
+              <Button
+                onClick={playAgain}
+                size="lg"
+                className="bg-blue-500 hover:bg-blue-600 text-white text-lg px-8"
+              >
+                Play Again
+              </Button>
+              <Link href="/leaderboard">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="text-lg px-8"
+                >
+                  View Leaderboard 🏆
+                </Button>
+              </Link>
             </div>
           </Card>
         )}
