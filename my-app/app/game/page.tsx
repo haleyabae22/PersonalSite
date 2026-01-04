@@ -1,12 +1,16 @@
 // Mini Ball Game Page
+"use client";
 
-// Import the BasketballGame component from the components directory
 import BasketballGame from "@/components/BasketballGame";
+import { useTheme } from "@/app/themeContext";
 
-// Call the BasketballGame component to display the game
 export default function GamePage() {
+  const { theme } = useTheme();
+
   return (
-    <div className="min-h-screen">
+    <div className={`min-h-screen transition-colors ${
+      theme === "dark" ? "bg-gray-900" : "bg-white"
+    }`}>
       <BasketballGame />
     </div>
   );
